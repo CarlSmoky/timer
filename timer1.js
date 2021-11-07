@@ -2,17 +2,15 @@ const args = process.argv.slice(2);
 if (args.length === 0) {
   return null;
 }
+
 let numbers = [];
-for (let index = 0; index < args.length; index++) {
-  if (Number(args[index]) && Number(args[index]) > 0) {
-    numbers.push(Number(args[index]));
-  }
-}
+numbers = args.filter(el => (Number(el) && Number(el) > 0));
+
 if (numbers.length === 0) {
   return null;
 }
 
-numbers.sort(function(a, b) {
+numbers.sort((a, b) => {
   return a - b;
 });
 
